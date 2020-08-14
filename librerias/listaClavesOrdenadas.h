@@ -13,9 +13,10 @@ struct nodo {
 
 template <class T>
 class lista{nodo <T> *cab;
-			int tam;
+			int tam = 0 ;
 
 	public: lista(){cab=NULL;}
+            int getTam();
 			bool lista_vacia();
 			void insertar(int Clave, T info);
 			void imprimir();
@@ -23,6 +24,7 @@ class lista{nodo <T> *cab;
 			bool enLista(int Clave);
 			void cambiar(int Clave, T infoNueva);
 			nodo<T> buscar (int Clave);
+            lista<int> getClaves(); //lista dinamica que contiene las claves
 };
 
 template <class T>
@@ -34,6 +36,7 @@ void lista <T>::insertar(int Clave, T info)
     nuevo->sig = NULL;
     if (cab == NULL)
     {cab = nuevo;
+        tam++;
     }
     else
     {
@@ -41,6 +44,7 @@ void lista <T>::insertar(int Clave, T info)
         {
             nuevo->sig = cab;
             cab = nuevo;
+            tam++;
         }
         else
         {
@@ -56,6 +60,7 @@ void lista <T>::insertar(int Clave, T info)
                 nuevo->sig = aux;
                 atras->sig = nuevo;
             }
+            tam++;
         }
     }
 }
@@ -82,6 +87,23 @@ bool lista<T>::enLista(int Clave){
 		}
 	}
 	return esta;
+}
+
+template <class T>
+lista<int> lista<T>::getClaves()
+{   nodo <T> *aux=cab;
+    lista<int> d;
+    for (int i = 0; i < tam; i++)
+    {
+        d.insertar(i,aux->clave);
+        aux = aux->sig;
+    }
+    return d;
+}
+
+template <class T>
+int lista<T>::getTam(){
+    return tam;
 }
 
 template <class T>

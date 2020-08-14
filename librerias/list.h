@@ -23,8 +23,6 @@ class list{node <T> *cab;
 			bool cambiar(int pos, T infoNueva);
       int get_tam(){return tam;};
 
-
-
 };
 
 template <class T>

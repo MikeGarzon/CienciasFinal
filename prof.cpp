@@ -12,9 +12,9 @@ class Profesores {
 
 	public:
 		void nuevoProfe (int cd, string a, string n, int ncla); //añade un profe a la lista
-		int getCedProfe(int cd);
-		int getNumClases(int cd);
-		void ListaPorClases(int ncla);
+		int getCedProfe(int cd); //retorna la cedula del profe
+		int getNumClases(int cd); //retorna el numero de clases del profe
+		void ListaPorClases(int ncla); //imprime la lista de profes con N Clases
 
 };
 
@@ -35,6 +35,17 @@ int Profesores::getNumClases(int cd){
 	else return 0;
 }
 
-void Profesores::ListaPorClases(int nCla){
-	//TODO
+void Profesores::ListaPorClases(int ncla){
+	lista<int> ced; int aux;
+	ced = cedulas.getClaves(); //guardamos las claves en una lista
+	for (int i = 0; i < ced.getTam(); i++) //recorremos esa lista
+	{
+		aux = ced.buscar(i).Dato; //Buscamos en los datos, con las cedulas
+		if (cedulas.buscar(aux).Dato.nClases == ncla){ //verificamos que tengan el mismo Nclases
+			cout<<aux<<" | ";
+			cout<<cedulas.buscar(aux).Dato.apellido<<" ";
+			cout<<cedulas.buscar(aux).Dato.nombre<<" | ";
+			cout<<cedulas.buscar(aux).Dato.nClases<<endl;
+		}
+	}
 }

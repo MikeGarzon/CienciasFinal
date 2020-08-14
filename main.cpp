@@ -21,9 +21,12 @@ int main() {
 
 	prof.nuevoProfe(1233904295,"Garzon","Maicol",3);
 	prof.nuevoProfe(1233904666,"Rubio","Deisy",2);
+	prof.nuevoProfe(1233901231,"Daza","Paolo",2);
 
 	cout<<prof.getCedProfe(1233904295)<<endl;
-	cout<<prof.getNumClases(1233904295)<<endl;
+	cout<<"clases "<<prof.getNumClases(1233904295)<<endl;
+	prof.ListaPorClases(2);
+
 
 	return 0;
 }
