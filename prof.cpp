@@ -8,19 +8,22 @@ struct datos{
 
 class Profesores {
 	datos d;
-	lista<datos> cedulas;
+	lista<datos> cedulas; //aqui se guardan los datos, la cedula es la clave de la lista
 
 	public:
 		void nuevoProfe (int cd, string a, string n, int ncla); //añade un profe a la lista
 		int getCedProfe(int cd); //retorna la cedula del profe
 		int getNumClases(int cd); //retorna el numero de clases del profe
 		void ListaPorClases(int ncla); //imprime la lista de profes con N Clases
-
+		//TODO: guardad archivos en memoria secundaria
 };
 
 void Profesores::nuevoProfe(int cd, string a, string n, int ncla){
 	d.apellido = a; d.nombre = n; d.nClases = ncla;
-	cedulas.insertar(cd,d);//TODO: Verificar cedula unica
+	if(cedulas.enLista(cd))
+		cout<<"La cedula ya esta registrada"<<endl;
+	else
+		cedulas.insertar(cd,d);
 }
 
 int Profesores::getCedProfe(int cd){
