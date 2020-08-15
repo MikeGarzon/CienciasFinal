@@ -1,14 +1,14 @@
 #include "librerias/listaClavesOrdenadas.h" //WINDOWS: "librerias\listaClavesOrdenadas.h"
 
-struct datos{
+struct datosProf{
 	string apellido;
 	string nombre;
 	int nClases;
 };
 
 class Profesores {
-	datos d;
-	lista<datos> cedulas; //aqui se guardan los datos, la cedula es la clave de la lista
+	datosProf d;
+	lista<datosProf> cedulas; //aqui se guardan los datos, la cedula es la clave de la lista
 
 	public:
 		void nuevoProfe (int cd, string a, string n, int ncla); //añade un profe a la lista

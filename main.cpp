@@ -1,6 +1,6 @@
 #include "temas.cpp"
 #include "prof.cpp"
-
+#include "clases.cpp"
 
 int main() {
 	Temas temas;
