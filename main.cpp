@@ -1,11 +1,12 @@
 #include "temas.cpp"
 #include "prof.cpp"
 #include "clases.cpp"
+#include "notas.cpp"
 
 int main() {
 	Temas temas;
 	Profesores prof;
-
+	Notas notas;
 
 	//----------------Temas--------------------------------
 	/*temas.nuevoTema(2,"Complejidad en memoria");
@@ -30,5 +31,37 @@ int main() {
 	prof.ListaPorClases(2);
 	*/
 
+	//-----------------Notas-------------------------------//NOT FINISHED
+/*
+	lista<string> nm; lista<punto> nt; lista <double> pt;//Se supone estos se llenan con lo que llega del archivo
+
+
+	//lleno estos datos a mano por ahora
+	nm.insertar(1 , "Santi Perez");
+		pt.insertar(1 , notas.validarPuntos(5.0));
+		pt.insertar(2 , notas.validarPuntos(3.0));
+		pt.insertar(3 , notas.validarPuntos(2.0));
+		pt.insertar(4 , notas.validarPuntos(4.0));
+	nt.insertar(1 , pt);
+
+
+	nm.insertar(2 , "Felipe Ramon");
+		pt.insertar(1 , notas.validarPuntos(5.0));
+		pt.insertar(2 , notas.validarPuntos(5.0));
+		pt.insertar(3 , notas.validarPuntos(5.0));
+		pt.insertar(4 , notas.validarPuntos(5.0));
+	nt.insertar(2 , pt);
+
+	nm.insertar(3 , "Juan Perez");
+		pt.insertar(1 , notas.validarPuntos(2.0));
+		pt.insertar(2 , notas.validarPuntos(3.0));
+		pt.insertar(3 , notas.validarPuntos(2.0));
+		pt.insertar(4 , notas.validarPuntos(1.0));
+	nt.insertar(3 , pt);*/
+
 	return 0;
 }
+
+
+
+
