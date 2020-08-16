@@ -32,32 +32,30 @@ int main() {
 	*/
 
 	//-----------------Notas-------------------------------//NOT FINISHED
-/*
-	lista<string> nm; lista<punto> nt; lista <double> pt;//Se supone estos se llenan con lo que llega del archivo
 
+	//Los lleno a mano, pero los datos que hay aqui son los que llegan del txt
+	notas.nuevoExamen(1 , "" , "");
+	notas.nuevoExamen("Pepe Perez" , "0.0 1.0 3.0 2.0");
+	notas.nuevoExamen("Felipe Perez" , "0.0 1.0 3.0 2.0");
+	notas.nuevoExamen("Juanito Perez" , "0.0 1.0 3.0 2.0");
+	notas.nuevoExamen("Ramon Perez" , "5.0 1.0 3.0 2.0");
+	notas.nuevoExamen(0 , "" , "");
 
-	//lleno estos datos a mano por ahora
-	nm.insertar(1 , "Santi Perez");
-		pt.insertar(1 , notas.validarPuntos(5.0));
-		pt.insertar(2 , notas.validarPuntos(3.0));
-		pt.insertar(3 , notas.validarPuntos(2.0));
-		pt.insertar(4 , notas.validarPuntos(4.0));
-	nt.insertar(1 , pt);
+	notas.nuevoExamen(3 , "" , "");
+	notas.nuevoExamen("Johon saul " , "0.0");
+	notas.nuevoExamen("Chavarrio roe" , "0.0");
+	notas.nuevoExamen("Dios wilde" , "0.0");
+	notas.nuevoExamen("Perez botero" , "0.0");
+	notas.nuevoExamen(0 , "" , "");
 
+	notas.nuevoExamen(2 , "" , "");
+	notas.nuevoExamen("Julio Berne " , "0.0 -3.0");
+	notas.nuevoExamen("Garcia Marquez" , "0.0 6.0");
+	notas.nuevoExamen("Michael Foucolt" , "0.0 5.0");
+	notas.nuevoExamen(0 , "" , "");
 
-	nm.insertar(2 , "Felipe Ramon");
-		pt.insertar(1 , notas.validarPuntos(5.0));
-		pt.insertar(2 , notas.validarPuntos(5.0));
-		pt.insertar(3 , notas.validarPuntos(5.0));
-		pt.insertar(4 , notas.validarPuntos(5.0));
-	nt.insertar(2 , pt);
+	notas.imprimir();
 
-	nm.insertar(3 , "Juan Perez");
-		pt.insertar(1 , notas.validarPuntos(2.0));
-		pt.insertar(2 , notas.validarPuntos(3.0));
-		pt.insertar(3 , notas.validarPuntos(2.0));
-		pt.insertar(4 , notas.validarPuntos(1.0));
-	nt.insertar(3 , pt);*/
 
 	return 0;
 }
