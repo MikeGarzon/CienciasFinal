@@ -129,6 +129,7 @@ void lista<T>::borrar(int Clave){
 	if(Clave == cab->clave){
 		cab = temp->sig;
         delete temp;
+        tam--;
 	}else
 	{
     while(Clave != temp->sig->clave){
@@ -151,7 +152,6 @@ void lista<T>::imprimir()
     		cout<<aux->Dato<<endl;
 			aux = aux->sig;
 			}
-
 }
 
 template <class T>
