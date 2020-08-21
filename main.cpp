@@ -11,14 +11,16 @@ int main() {
 	Cortes corte;
 
 	//----------------Temas--------------------------------
-	/*temas.nuevoTema(2,"Complejidad en memoria");
+	temas.nuevoTema(2,"Complejidad en memoria");
 	temas.nuevoTema(3,"Complejidad");
-
-	temas.borrarTema(3);
-	cout<<temas.getInfo(2);
-	temas.cambiarTema(2,"Complejidad en tiempo");
-	cout<<temas.getInfo(2);
-	cout<<temas.getInfo(3);*/
+	temas.nuevoTema(4,"Algoritmos");
+	temas.nuevoTema(5,"Apuntadores");
+	temas.getTemas().imprimir();
+	//temas.borrarTema(3);
+	//cout<<temas.getInfo(2);
+	//temas.cambiarTema(3,"Complejidad en tiempo");
+	//cout<<temas.getInfo(2);
+	//cout<<temas.getInfo(3);
 
 	//---------------Lista Profes---------------------------
 /*
@@ -71,6 +73,7 @@ int main() {
 	corte.nuevoCorte(tamCortes);
 
 	int tamTipos; string nomTipo; int porcTipo;
+	int tamNotas; int cPuntos, nTema, porcTema;
 
 	//determinando tamaño de los tipos a evaluar en cada corte
 	for (int i = 0; i < tamCortes; ++i){
@@ -81,31 +84,42 @@ int main() {
 	 	do{ //Verificamos que los porcentajes sean 100
 	 		//seteando el nombre y porcentaje de cada tipo del corte
 			for (int j = 0; j < tamTipos; j++){ //j tipo del corte i
-					cout<<"Ingrese el nombre del tipo a evaluar del corte "<<i<<" :"<<endl; cin>>nomTipo;
-					cout<<"Ingrese el porcentaje de este tipo a evaluar del corte "<<i<<" :"<<endl; cin>>porcTipo;
-					cout<<"Corte "<<i<<" manera a evaluar "<<j<<" -> "<<nomTipo<<", "<<porcTipo<<endl;
-					corte.tipoCorte(i,j,nomTipo, porcTipo);
 
+				//Nombre y porcentaje tipo
+				cout<<"Ingrese el nombre del tipo a evaluar del corte "<<i<<" :"; cin>>nomTipo;
+				cout<<"Ingrese el porcentaje de este tipo a evaluar del corte "<<i<<" :"; cin>>porcTipo;
+
+				//Notas en este tipo
+				cout<<"¿Cuantos notas tomara en "<<nomTipo<<": "<<endl; cin>>tamNotas;
+				corte.nuevaNota(i, j, tamNotas);
+
+				//Puntos de la nota
+				for (int k = 0; k < tamNotas; k++){
+					cout<<"Ingrese la cantidad de puntos de la nota "<< k << " de "<<nomTipo<<" en el corte "<<i<<" :"<<endl;
+					cin>>cPuntos; corte.crearPunto(cPuntos); //arrelo de puntos en la estructura
+					for (int l = 0; l < cPuntos; l++){
+						cout<<"Ingrese el tema del punto "<< l << " tipo de examen " <<nomTipo<<" del corte "<<i<<endl;
+						temas.getTemas().imprimir(); cin>>nTema;
+						//TODO: verificar que esta el tema
+						cout<<"ingrese el porcentaje del punto "<< l << " tipo de examen " <<nomTipo<<" del corte "<<i<<endl; cin>>porcTema;
+						corte.setPunto(l,nTema, porcTema);//seteando datos de cada punto de la nota
+						//TODO:verificar porcentajes
+					}
+					corte.ctdPuntos(i,j,k); //agregamos los puntos a la nota
+				}
+
+				cout<<"Corte "<<i<<"-> manera a evaluar :"<<nomTipo<<", "<<porcTipo<<"%"<<", cantidad de notas "<<tamNotas<<endl;
+				corte.tipoCorte(i,j,nomTipo, porcTipo); //añadiendo nombre y porcentaje tipo del corte
+				//TODO: CLS a la consola
 			}
+
 			if(corte.validarPorcentajes(i, tamTipos)==false)
 						cout<<"Los porcentajes no dan 100 por favor,ingrese de nuevo."<<endl;
-		}while(corte.validarPorcentajes(i, tamTipos)==false);
+		}while(corte.validarPorcentajes(i, tamTipos)==false); //Validamos porcentaje tipo de evaluar
 	}
 
-
-
-
-
-
-	cout<<"¿Cuantos notas tomara en este tipo (corte i)?"<<endl;
-
-	cout<<"Ingrese la cantidad de puntos de esta nota (tipo a)(corte i)"<<endl;
-
-	cout<<"Ingrese el tema del punto (nota j)(tipo a)(corte i)"<<endl;
-
-	cout<<"ingrese el porcentaje del puntos (nota j)(tipo a)(corte i)"<<endl;
-
-
+	//TODO: imprimir los datos guardados
+	//TODO: guardar en memoria secundaria
 
 	return 0;
 }
