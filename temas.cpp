@@ -9,7 +9,7 @@ class Temas{
 		nodo<string> getNodo(int cla); //Retorna el nodo para usarlo en otras clases
 		void borrarTema(int cla); //Borramos un tema de la clase Temas
 		void cambiarTema(int cla, string nombre); //Cambiamos un tema en esta clase
-
+		lista<string> getTemas();
 		//TODO: guardar en memoria secundaria
 };
 
@@ -33,6 +33,10 @@ string Temas::getInfo(int cla){
 
 nodo<string> Temas::getNodo(int cla){ //OJO el nodo en esta clase es string
 	return temas.buscar(cla); //TODO: CREAR APUNTADOR PARA RETONRAR EL DATO
+}
+
+lista<string> Temas::getTemas(){
+	return temas;
 }
 
 void Temas::borrarTema(int cla){
