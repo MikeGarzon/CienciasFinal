@@ -5,7 +5,7 @@ using namespace std;
 
 template <class T>
 struct node{ T dato;
-		int clave;
+		long int clave;
         node *sig;
        };
 
@@ -18,7 +18,7 @@ class list{
 		inicio = new node <T>;
 		final = new node <T>;
 		inicio->clave= -1;
-		final->clave=9999999;
+		final->clave=9999999999999;
 		inicio->sig=final;
 		aux=inicio;
 	}
