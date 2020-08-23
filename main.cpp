@@ -25,15 +25,15 @@ int main() {
 	//temas.cambiarTema(3,"Complejidad en tiempo");
 	//cout<<temas.getInfo(2);
 	//cout<<temas.getInfo(3);
-
+*/
 	//---------------Lista Profes---------------------------
-/*
+
 	prof.nuevoProfe(1233904295,"Garzon","Maicol",3);
 	prof.nuevoProfe(1233904666,"Rubio","Deisy",2);
 	prof.nuevoProfe(1233901231,"Daza","Paolo",2);
 	prof.nuevoProfe(1233901232,"Calidoso","Pepe",1);
 	prof.nuevoProfe(1000000000,"Villanueva","Jose",2);
-*/
+
 	//prof.getCedProfe(1233901231)<<endl;
 	//"clases "<<prof.getNumClases(1233904295)<<endl;
 	//prof.ListaPorClases(2);
@@ -153,6 +153,10 @@ corte.ctdnotas(0,1);
 
 */
 
+lista<datosProf> cedprof = prof.getProfes();
+
+lista<int> cedulas = cedprof.getClaves(); //sacando la lista de cedulas
+
 
 int numTipo; int tema; int valor; string tipo;
 int numT;//Numero de tipos de cada nota
@@ -191,8 +195,21 @@ list<cortes> cortesNotas; //La primera lista de parejas que va a tener la nota
 		cortesNotas.insertar(i,corte);
 	}
 
+	//Relacionando profe y cedulas
 
-	imprimirCortesNotas(cortesNotas); //Imprimimos lo que acabamos de crear
+	list<list<cortes>> corte_profe;//Lista de cortes, (la clave es la cedula de profe)
+
+	int ced;
+	cout<<"¿con que profe desea relacionar este corte?"<<endl;
+	cedulas.imprimir();
+
+	cin>>ced;
+	corte_profe.insertar(ced,cortesNotas); //guardamos a la otra lista el corte
+
+
+	imprimirCortesNotas(corte_profe.getList(ced).dato);
+
+	//imprimirCortesNotas(cortesNotas); //Imprimimos lo que acabamos de crear
 
 	return 0;
 }
