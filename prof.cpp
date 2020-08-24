@@ -1,4 +1,5 @@
 #include "librerias/listaClavesOrdenadas.h" //WINDOWS: "librerias\listaClavesOrdenadas.h"
+#include "corte.h"
 
 struct datosProf{
 	string apellido;
@@ -15,8 +16,13 @@ class Profesores {
 		int getCedProfe(int cd); //retorna la cedula del profe
 		int getNumClases(int cd); //retorna el numero de clases del profe
 		void ListaPorClases(int ncla); //imprime la lista de profes con N Clases
+		lista<datosProf> getProfes();
 		//TODO: guardad archivos en memoria secundaria
 };
+
+lista<datosProf> Profesores::getProfes(){
+	return cedulas;
+}
 
 void Profesores::nuevoProfe(int cd, string a, string n, int ncla){
 	d.apellido = a; d.nombre = n; d.nClases = ncla;
